@@ -34,16 +34,40 @@
             <div class="col-auto">
                 <input type="number" name="len" class="form-control">
             </div>
+            <div>
+                <div class="col-auto mb-3">
+                    <h5>
+                        Scegli come vuoi che sia composta la tua password:
+                    </h5>
+                </div>
+                <div class="col-auto mb-3">
+                    <label for="alphabet" class="form-check-label">Lettere</label>
+                    <input type="checkbox" name="alphabet" class="check-input-label">
+                </div>
+                <div class="col-auto mb-3">
+                    <label for="numbers" class="form-check-label">Numeri</label>
+                    <input type="checkbox" name="numbers" class="check-input-label">
+                </div>
+                <div class="col-auto mb-3">
+                    <label for="specials" class="form-check-label">Caratteri Speciali</label>
+                    <input type="checkbox" name="specials" class="check-input-label">
+                </div>
+                <div class="col-auto mb-3">
+                    <label for="combos" class="form-check-label">Ripeti caratteri</label>
+                    <input type="checkbox" name="combos" class="check-input-label">
+                </div>
+            </div>
+
             <div class="d-grid gap-2 d-md-block">
-                <button class="btn btn-primary" type="submit">Invia</button>
+                    <button class="btn btn-primary" type="submit">Invia</button>
             </div>
 
             <?php
 
                 #Applico un controllo per cui se è stato riempito l'input
-                if(isset($_GET['len'])) {
+                if(isset($_GET['len']) || isset($_GET['alphabet']) || isset($_GET['numbers']) || isset($_GET['specials'])) {
 
-                    $password = generateRandomPassword($_GET['len']);
+                    $password = generateRandomPassword($_GET['len'], isset($_GET['alphabet']), isset($_GET['numbers']), isset($_GET['specials']));
 
                     $_SESSION['finalPassword'] = $password;
 
