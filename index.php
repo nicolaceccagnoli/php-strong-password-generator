@@ -65,7 +65,7 @@
             <?php
 
                 #Applico un controllo per cui se è stato riempito l'input
-                if(isset($_GET['len']) || isset($_GET['alphabet']) || isset($_GET['numbers']) || isset($_GET['specials'])) {
+                if(isset($_GET['len']) && (isset($_GET['alphabet']) || isset($_GET['numbers']) || isset($_GET['specials']))) {
 
                     $password = generateRandomPassword($_GET['len'], isset($_GET['alphabet']), isset($_GET['numbers']), isset($_GET['specials']));
 

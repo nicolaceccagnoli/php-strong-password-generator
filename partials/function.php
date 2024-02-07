@@ -38,7 +38,7 @@
 
             $numbersLength = strlen($numbers);
 
-            $specialsLength = strlen($alphabet);
+            $specialsLength = strlen($specials);
     
             for ($i = 0; $i < $length; $i++) {
 
