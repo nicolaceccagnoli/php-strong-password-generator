@@ -1,3 +1,7 @@
+<?php
+    include __DIR__ . '/partials/function.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,49 +36,38 @@
                 <button class="btn btn-primary" type="submit">Invia</button>
             </div>
         </form>
-    </main>
 
-    <?php
+        <?php
 
-        #Applico un controllo per cui se è stato riempito l'input
-        if(isset($_GET['passwordLength'])) {
+            #Applico un controllo per cui se è stato riempito l'input
+            if(isset($_GET['passwordLength']) && !isset($password)) {
 
-            #Racchiudo in una variabile il valore inserito in input convertito in number
-            $passwordLength = intval($_GET['passwordLength']);
+                #Racchiudo in una variabile il valore inserito in input convertito in number
+                $passwordLength = $_GET['passwordLength'];
 
-            #Dichiaro una variabile contenente i caratteri speciali
-            $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*';
+                #Dichiaro una variabile contenente i caratteri speciali
+                $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*';
 
-            #Creo una funzione che generi una password casuale che si basi su 2 argomenti
-            function generateRandomPassword($length, $characters) {
-                
-                #Dichiaro una variabile password con stringa vuota
-                $password = '';
-                #Dichiaro una variabile che contenga la lunghezza della stringa $characters
-                $charactersLength = strlen($characters);
+                #Utilizzo della funziona
+                $password = generateRandomPassword($passwordLength, $characters);
 
-                #Creo un ciclo che data una certa lunghezza prosegue la sua iterazione
-                for ($i = 0; $i < $length; $i++) {
-
-                    #E concatena a $password i singoli caratteri partendo da un indice casuale in $characters (interpretato come se fossi un Array)
-                    $password .= $characters[rand(0, $charactersLength - 1)];
-                }
-
-                #Restituisce password 
-                return $password;
             };
 
-            #Utilizzo della funziona
-            $password = generateRandomPassword($passwordLength, $characters);
+        ?>
 
-            var_dump($password);
+        <div>
+            <h3>
+                Abbiamo generato questa password per te è:  
+                <?php 
+                    if (isset($password)) {
+                        echo $password; 
+                    }
+                ?>
+            </h3>
+        </div>
 
-            echo $password;
 
-        };
-
-    ?>
-
+    </main>
 
 </body>
 </html>
