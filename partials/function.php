@@ -1,10 +1,14 @@
 <?php
 
-    #Creo una funzione che generi una password casuale che si basi su 2 argomenti
-    function generateRandomPassword($length, $characters) {
-        
+    #Dichiaro una funzione che mi generi la password randomica
+    function generateRandomPassword($length) {
+
+        #Dichiaro una variabile contenente i caratteri speciali
+        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*';
+
         #Dichiaro una variabile password con stringa vuota
         $password = '';
+        
         #Dichiaro una variabile che contenga la lunghezza della stringa $characters
         $charactersLength = strlen($characters);
 
@@ -17,7 +21,7 @@
 
         #Restituisce password 
         return $password;
+
     };
-
-
+    
 ?>
