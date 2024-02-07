@@ -31,8 +31,8 @@
                     Quanto vuoi che sia lunga la tua password?
                 </label>
             </div>
-            <div class="col-auto">
-                <input type="number" name="len" class="form-control">
+            <div class="col-4">
+                <input type="number" name="len" class="form-control w-100" min="5" max="20" placeholder="Inserisci un numero compreso tra 5 e 20">
             </div>
             <div>
                 <div class="col-auto mb-3">
@@ -53,8 +53,8 @@
                     <input type="checkbox" name="specials" class="check-input-label">
                 </div>
                 <div class="col-auto mb-3">
-                    <label for="combos" class="form-check-label">Ripeti caratteri</label>
-                    <input type="checkbox" name="combos" class="check-input-label">
+                    <label for="combos" class="form-check-label">Non ripetere caratteri</label>
+                    <input type="checkbox" name="combo" class="check-input-label">
                 </div>
             </div>
 
@@ -65,9 +65,9 @@
             <?php
 
                 #Applico un controllo per cui se è stato riempito l'input
-                if(isset($_GET['len']) && (isset($_GET['alphabet']) || isset($_GET['numbers']) || isset($_GET['specials']))) {
+                if(isset($_GET['len']) && (isset($_GET['alphabet']) || isset($_GET['numbers']) || isset($_GET['specials']) || isset($_GET['combo']))) {
 
-                    $password = generateRandomPassword($_GET['len'], isset($_GET['alphabet']), isset($_GET['numbers']), isset($_GET['specials']));
+                    $password = generateRandomPassword($_GET['len'], isset($_GET['alphabet']), isset($_GET['numbers']), isset($_GET['specials']), isset($_GET['combo']));
 
                     $_SESSION['finalPassword'] = $password;
 
