@@ -52,7 +52,7 @@
             #Se $noRepeat è true allora controlla se il carattere è già stato utilizzato
             if ($noRepeat && in_array($randomChar, $usedChars)) {
 
-                #Se il carattere è già stato utilizzato passa al prossimo ciclo
+                #Se il carattere è già stato utilizzato esco dal ciclo while e la password si crea
                 continue; 
             }
 
