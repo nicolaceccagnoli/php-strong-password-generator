@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include __DIR__ . '/partials/function.php';
+    require __DIR__ . '/partials/function.php';
 
 ?>
 
