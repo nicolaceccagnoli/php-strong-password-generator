@@ -32,7 +32,7 @@
                 </label>
             </div>
             <div class="col-4">
-                <input type="number" name="len" class="form-control w-100" min="5" max="20" placeholder="Inserisci un numero compreso tra 5 e 20">
+                <input required type="number" name="len" class="form-control w-100" min="5" max="20" placeholder="Inserisci un numero compreso tra 5 e 20">
             </div>
             <div>
                 <div class="col-auto mb-3">
